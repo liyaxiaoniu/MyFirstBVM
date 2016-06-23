@@ -111,9 +111,9 @@ body {
   box-sizing: border-box;
 }
 .row {
-  box-sizing: border-box;
-  margin-right: -0.15rem;
-  margin-left: -0.15rem;
+  /*box-sizing: border-box;*/
+  /*margin-right: -0.15rem;*/
+  /*!*margin-left: -0.15rem;*!*/
   margin-bottom: 2rem;
 }
 .row:before {

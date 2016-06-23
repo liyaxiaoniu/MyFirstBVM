@@ -10,7 +10,7 @@
   z-index: 50;
   text-align: center;
   width: 100%;
-  position: absolute;
+  position: fixed;
   top: 35%;
 }
 .toast-normal {

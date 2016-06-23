@@ -4,36 +4,44 @@
     <div class="main-cen">
           <div class="main-cen-border">
               <div class="main-phon"></div>
-              <div class="main-phon-in"><input type="text" id="main_phon_input" class="main-phon-input" maxlength = "11" placeholder="请输入手机号"/></div>
+              <div class="main-phon-in"><input type="tel" id="main_phon_input" class="main-phon-input" maxlength = "11" placeholder="请输入手机号"/></div>
               <div class="main-phon-err"><div class="main-err"></div>
                   <div class="main-phon-err-t">号码格式错误</div>
               </div>
           </div>
+        <div class="main-cen-border" id="main-hide">
+            <div class="main-cen-phonimg"></div>
+            <div class="main-phon-in"><input type="text" id="main-phon-input-m" class="main-phon-input-m" maxlength = "4" placeholder="图形验证码"/></div>
+            <div class="main-phon-err-fei"><img id="vCode" src=""/></div>
+            <div class="main-phon-err-co">图形验证码错误</div>
+        </div>
          <div class="main-cen-border">
              <div class="main-cen-phonimg"></div>
              <div class="main-phon-ininp"><input type="text" id="main_phon_code" maxlength = "6" class="main-phon-input" placeholder="请输入验证码"/></div>
-             <div class="main-phon-err-inp">重新获取</div>
+            <input class="main-phon-err-inp" type="button" name="mainCode" id="main-codes" disabled value="获取验证码">
+             <div class="main-phon-err-code"><div class="main-err"></div>
+                 <div class="main-phon-err-c">验证码错误</div>
+             </div>
           </div>
-        <div class="main-close">已发送至13423432354,请在120秒内输入</div>
-        <div class="main-phon-err-code"><div class="main-err"></div>
-            <div class="main-phon-err-c">验证码错误</div>
-        </div>
+        <div class="main-close" id="main-close"></div>
+
     </div>
     </form>
 </div>
 <div class="main_explain"></div>
 <div class="main_record"></div>
-<div class="main_accBtn" id="main_accBtn">我要领取</div>
+<div class="main_accBtn" id="main_accBtn" data-send="no" href="javascript:">我要领取</div>
+<div class="main_accBtn_hidden" id="main_accBtn_hidden" data-send="no" href="javascript:">我要领取</div>
 <div class="main_copyright font-t2">活动奖品与苹果公司无关  |   活动解释权归中国平安所有</div>
 
-<div class="mainHideOption"></div>
+<!--<div class="mainHideOption"></div>-->
 
-<div id="reCode" class="main_pop main_pop_normal">
-    <div class="main_pop_title"></div>
-    <div id="reCodeClose" class="main_pop_close"></div>
-    <p class="recom_font3 font-t1">如您有推荐码，请填写提交<br/>这个推荐人可以获得10M流量奖励！</p>
-    <input class="font-t1 recom_code" type="text" placeholder="推荐码" maxlength="8">
-    <p class="font-t1 recom_code_label">输入8个字符推荐码</p>
-    <div class="recom_submit font-h2">提交</div>
-    <div class="recom_no_code font-h2">没有推荐码</div>
-</div>
+<!--<div id="reCode" class="main_pop main_pop_normal">-->
+    <!--<div class="main_pop_title"></div>-->
+    <!--<div id="reCodeClose" class="main_pop_close"></div>-->
+    <!--<p class="recom_font3 font-t1">如您有推荐码，请填写提交<br/>这个推荐人可以获得10M流量奖励！</p>-->
+    <!--<input class="font-t1 recom_code" type="text" placeholder="推荐码" maxlength="8">-->
+    <!--<p class="font-t1 recom_code_label">输入8个字符推荐码</p>-->
+    <!--<div class="recom_submit font-h2">提交</div>-->
+    <!--<div class="recom_no_code font-h2">没有推荐码</div>-->
+<!--</div>-->

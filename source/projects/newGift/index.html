@@ -5,6 +5,10 @@
     <title>新人有礼2</title>
     <meta name="format-detection" content="telephone=no">
     <script src="script/setDpr.js" defer="defer"></script>
+    <script src="script/utils/sha1.js"></script>
+    <script src="script/utils/jbase64.js"></script>
+    <!--<script src="script/utils/clipboard.min.js"></script>-->
+
     <link rel="stylesheet" href="style/main.css" type="text/css"/>
 </head>
 <body>
@@ -17,6 +21,16 @@
         <p class="toast-font-text font-t1">页面刷新中</p>
     </div>
 </div>
+<section id="netOver" style="display: none">
+    <div class="netOver_float">
+        <div id="netOver_backPic" class="netOver_close" >
+            <img class="nv_backPic" src="style/images/close.png" style="width: 1rem;height: 1rem" alt="">
+        </div>
+        <div class="netOver_over">
+            <p>亲，网络连接出错，请检测网络后，稍后访问</p>
+        </div>
+    </div>
+</section>
 <div id="newAlert" class="font-h3"></div>
 <div id="modelBox"></div>
 <div id="pop-scene">
@@ -40,9 +54,10 @@
         <div class="recom_new font-h2">您还未领取新人流量，请先领取</div>
     </div>
     <!--填写推荐码-->
+        <div class="reCode_bg"></div>
     <div id="reCode" class="main_pop main_pop_normal">
         <div class="main_pop_title"></div>
-        <div id="reCodeClose" class="main_pop_close"></div>
+        <!--<div id="reCodeClose" class="main_pop_close"></div>-->
         <p class="recom_font3 font-t1">如您有推荐码，请填写提交<br/>这个推荐人可以获得10M流量奖励！</p>
         <input class="font-t1 recom_code" type="text" placeholder="推荐码" maxlength="8">
         <p class="font-t1 recom_code_label">输入8个字符推荐码</p>
@@ -54,17 +69,19 @@
     <!--活动规则-->
     <div id="activeRule" class="main_pop main_pop_high">
         <div class="main_pop_title"></div>
-        <div id="activeRuleClose" class="main_pop_close"></div>
+        <div class="main_hide_size">
+            <div id="activeRuleClose" class="main_pop_close"></div>
+        </div>
         <h2 class="active_rule font-h3">活动规则</h2>
         <div class="rule_desc">
             <div class="rule_font_block font-t1">
-                1.	活动时间：4月20日－5月20日<br/>
-                2.	活动对象：送流量活动仅限一账通新注册用户可以参与。老用户可以参与推荐好友和下载一账通app参加更多精彩的活动。<br/>
-                3.	活动期间：每位一账通新用户注册完成后可获得30M流量，如推荐成功一名用户注册，可再获得10M流量。推荐奖励不设上限，推荐成功的注册用户越多获得的流量越多。<br/>
-                4.	推荐活动以及推荐码，和奖励仅在本次活动中进行，通过其他路径和渠道注册一账通用户无此入口，属于无效操作。<br/>
-                5.	每个一账通账号只有一个专属推荐码。同一个推荐码可多次使用，推荐给多个不同的人。<br/>
-                6.	所有广告位中的业务方广告的解释权均由业务方负责。<br/>
-                7.	免责声明：活动奖品与苹果公司无关｜活动解释权归中国平安所有<br/>
+                <!--1.	活动时间：4月20日－5月20日<br/>-->
+                1.	活动对象：送流量活动仅限一账通新注册用户可以参与。老用户可以参与推荐好友和下载一账通app参加更多精彩的活动。<br/>
+                2.	活动期间：每位一账通新用户注册完成后可获得50M流量，如推荐成功一名用户注册，可再获得10M流量以及1次抽奖机会。推荐奖励不设上限，推荐成功的注册用户越多获得的流量越多。<br/>
+                3.	邀请好友完成注册可赢取更多领取抽奖码的机会。<br/>
+                4.	邀请好友注册赢抽奖机会具体规则：在活动期间，每成功邀请好友注册可获得一次抽奖机会，完成3个，可获得额外的2次奖励，完成6个，可获得额外的3次奖励，完成9个，可获得额外的5次奖励。完成邀请好友注册的越多，再获得正常的抽奖机会的同时，还有更多的额外机会的奖励。推荐活动以及推荐码，和奖励仅在本次活动中进行，通过其他路径和渠道注册一账通用户无此入口，属于无效操作。<br/>
+                5.	每个一账通账号只有一个专属推荐码。同一个推荐码可多次使用，推荐给多个不同的人<br/>
+                6.	免责声明：活动奖品与苹果公司无关｜活动解释权归中国平安所有<br/>
             </div>
         </div>
         <div class="drop_box">
@@ -74,19 +91,21 @@
 </div>
 <div id="page">
     <!--首页-->
-    <div id="page_main" class="pageMode"></div>
+    <div id="page_main" class="pageMode" style="overflow:hidden"></div>
     <!--超时浮层-->
     <div id="page_overTime" class="pageMode"></div>
+    <!--推荐广告说明页面-->
+    <div id="ad_advise" class="pageMode"></div>
     <!--抽奖页面-->
-    <div id="page_lottery" class="pageMode" style="overflow:scroll"></div>
+    <div id="page_lottery" class="pageMode"></div>
     <!--领取抽奖码页面-->
     <div id="page_draw" class="pageMode"></div>
     <!--注册引导页-->
-    <div id="page_guide" class="pageMode page_light"></div>
+    <!--<div id="page_guide" class="pageMode page_light"></div>-->
     <!--流量领取成功页-->
     <div id="page_accept" class="pageMode page_light"></div>
     <!--业务加挂页-->
-    <div id="page_banner" class="pageMode page_light"></div>
+    <!--<div id="page_banner" class="pageMode page_light"></div>-->
     <!--我的战绩-->
     <div id="page_myRecord" class="pageMode"></div>
     <!--做任务赢大奖-->
@@ -96,6 +115,7 @@
 </div>
 <!--剪切版功能-->
 <script src="script/libs/require/v2.1.11/require.js" defer="defer" data-main="script/main"></script>
+
 
 </body>
 </html>

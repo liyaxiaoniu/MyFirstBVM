@@ -51,6 +51,31 @@
         }
         return flag;
     }
+    /**
+     * 判断某一个参数是否是否为数组对象
+     * @参数 {Object/String} obj
+     * @返回 {Boolean}
+     */
+    function isArray (obj) {
+        return Object.prototype.toString.call(obj) === '[object Array]';
+    }
+    /**
+     * 判断某一个参数是否是否为对象
+     * @参数 {Object/String} obj
+     * @返回 {Boolean}
+     */
+    function isObject (obj) {
+        return Object.prototype.toString.call(obj) === '[object Object]';
+    }
+    /**
+     * 判断某一个参数是否是否为Function
+     * @参数 {Object/String} obj
+     * @返回 {Boolean}
+     */
+    function isFunction (obj) {
+        return Object.prototype.toString.call(obj) === '[object Function]';
+    }
+
     function extend (obj1,obj2) {
         for(var p in obj2){
             if(obj2.hasOwnProperty(p) && (!obj1.hasOwnProperty(p))){
@@ -93,7 +118,35 @@
                         evName = evNameArr[i];
                         if(checkParam(evName,runArray)){
                             //判断当前参数是否在可接受的参数范围
-                            if(typeof obj[evName] == "function") {
+                            if(isArray(obj[evName])){
+                                //先判断是不是数组,如果是宿主
+                                var cloneObjArr = obj[evName];
+                                var j = 0;
+                                for(j;j<cloneObjArr.length;j++) {
+                                    if(!(isObject(cloneObjArr[j])||isFunction(cloneObjArr[j]))) {
+                                        //如果参数既不是对象也不是Function
+                                        runFlag = false;
+                                        break;
+                                    }else if(isObject(cloneObjArr[j])) {
+                                        var checkObj = cloneObjArr[j];
+                                        var checkNameObj = Object.keys(checkObj);
+                                        if(checkNameObj.length==2) {
+                                            if(!(checkParam(checkNameObj[0],objCanUse)&&checkParam(checkNameObj[1],objCanUse)&&(checkNameObj[0]!=checkNameObj[1]))) {
+                                                runFlag = false;
+                                            }
+                                        }else{
+                                            runFlag = false;
+                                        }
+                                    }else if(isFunction(cloneObjArr[j])) {
+                                        //如果是Function.暂不做相关判断
+                                    }
+                                }
+                                if(!runFlag) {
+                                    console.log("当前配置参数有重复项,请参考Api重新编写");
+                                }else{
+                                    this.runEvent[evName] =  cloneObjArr;
+                                }
+                            }else if(typeof obj[evName] == "function") {
                                 this.runEvent[evName] = obj[evName];
                             }else if(typeof obj[evName] == "object") {
                                 var objArr = obj[evName];
@@ -139,6 +192,8 @@
         },
         runEvent:{},         //可运行函数
         deleteEvent:{},      //运行后被删除的函数
+        cloneEvent:{},       //克隆当前可执行链
+        backData:[],         //存放各个层临时存储的数据,方便调用,避免走到哪传到哪,同时返回值可以跨链使用
         run:function(response) {
             var obj = this.runEvent;
             var evNameArr = Object.keys(obj); //之所以会这么麻烦的重新获取,主要是引入暂停机制解决回调
@@ -147,7 +202,39 @@
             if(evNameArr.length>0){
                 for(i;i<evNameArr.length;i++) {
                     evName = evNameArr[i];
-                    if(typeof this.runEvent[evName] == "function") {
+                    if(isArray(this.runEvent[evName])) {
+                        //如果可执行参数是数组对象
+                        var j = 0;
+                        var arrObj = this.runEvent[evName];
+                        var arrObjLength = arrObj.length;
+                        for(j;j<arrObjLength;j++) {
+                            //这里不用arrObj.length动态换取,是因为arrObj的长度在方法运行过一次后,值是会变的
+                            var runEvt = this.runEvent[evName].shift(); //把运行的第一个数组对象移除
+                            if(this.deleteEvent[evName] == undefined) {
+                                this.deleteEvent[evName] = [];
+                            }
+                            this.deleteEvent[evName].push(runEvt);
+                            if(isFunction(runEvt)) {
+                                //如果是一个参数是Function
+                                if(response) {
+                                    runEvt(response);
+                                }else{
+                                    runEvt();
+                                }
+                            }else if(isObject(runEvt)) {
+                                var runAsync = runEvt.async;
+                                if(response) {
+                                    runEvt.func(response);
+                                }else{
+                                    runEvt.func();
+                                }
+                                if(runAsync) {
+                                    break;
+                                }
+                            }
+                        }
+
+                    }else if(typeof this.runEvent[evName] == "function") {
                         //如果是可执行参数就直接执行
                         this.deleteEvent[evName] = this.runEvent[evName];//后面考虑设计一个容错机制,函数执行出错后可以继续执行
                         delete this.runEvent[evName]; //执行完成后就从待执行数组中删除
@@ -203,6 +290,29 @@
                     this.runEvent = middleEvent;
                     this.deleteEvent = {};
                 }
+            }
+        },
+        cloneChain:function () {
+            //再保留当前链条的情况下,克隆一条新的可执行链条,暂不引用,后续基于这个扩展功能
+            var i = 0,j = 0;
+            var delArr = Object.keys(this.deleteEvent);
+            var runArr = Object.keys(this.runEvent);
+            if(delArr.length!=0) {
+                //回调链可运行的条件是回调链有运行过
+                if(runArr.length==0) {
+                    //如果回调链可运行部分为空,证明该回调链,无可运行部分,直接重置
+                    this.cloneEvent = this.deleteEvent;
+                }else{
+                    this.cloneEvent = extend(this.deleteEvent,this.runEvent);
+                }
+            }
+        },
+        backRun:function (response) {
+            this.backZero(); //重置当前链条
+            if(response) {
+                this.run(response);
+            }else{
+                this.run();
             }
         },
         removeEvent:function () {

@@ -38,6 +38,8 @@ define(function(require){
             var pageName = evnt.state.pageName;
             showHisPage(pageName);
             console.log("发生了返回");
+            $('body').off('touchmove');
+            hideNetOver();
             callBackZero();
         }else{
             //如果是首页刷新，不做任何跳转,直接显示某个页面
@@ -95,8 +97,18 @@ define(function(require){
         pageDom.innerHTML = pageHtml;
         showAptPage("page_main",0,1); //首页不纪录游戏纪录
     }
-    function page_lottery () {
-        //主界面
+    function ad_adviseV (response) {
+        //推荐广告说明页面
+        //showLoading();
+        var pageHtml = require("text!template/ad_advise.html");
+        var pageDom = document.getElementById("ad_advise");
+        pageDom.innerHTML = pageHtml;
+        showAptPage("ad_advise",0,1); //首页不纪录游戏纪录
+    }
+
+    function page_lotteryV (response) {
+        //抽奖页
+        MaiDian("0501-进入抽奖页面");
         showLoading();
         var pageHtml = require("text!template/mainPage.html");
         var pageDom = document.getElementById("page_lottery");
@@ -109,6 +121,7 @@ define(function(require){
     }
     function drawPage () {
         //领取抽奖码界面
+        MaiDian("0601-进入抽奖码浮层页面");
         showLoading();
         var pageHtml = require("text!template/draw.html");
         var pageDom = document.getElementById("page_draw");
@@ -129,13 +142,15 @@ define(function(require){
         var pageHtml = require("text!template/accept.html");
         var pageDom = document.getElementById("page_accept");
         pageDom.innerHTML = pageHtml;
+
+        console.log(userAcceptInfo);
         var accept_code = userAcceptInfo.inviteCode;
         var newReward = userAcceptInfo.newReward;
         var $accept_m = $("#accept_m");
         var $accept_code = $("#accept_code");
         $accept_m.html(newReward);
         $accept_code.val(accept_code);
-        showAptPage("page_accept",1,1); //首页不纪录游戏纪录
+        showAptPage("page_accept",0,1); //首页不纪录游戏纪录
     }
     function lotteryPage(userAcceptInfo) {
         showLoading();
@@ -193,6 +208,7 @@ define(function(require){
         var pageDom = document.getElementById("page_guide");
         pageDom.innerHTML = pageHtml;
 
+
         showAptPage("page_guide",1,1); //首页不纪录游戏纪录
     }
 
@@ -211,30 +227,12 @@ define(function(require){
         });showAptPage("page_myRecord",1,1); //首页不纪录游戏纪录
     }
 
-
-
-
     function myPagePrize(pageName) {
        // showLoading();
         var pageHtml = require("text!template/myPrize.html");
         var pageDom = document.getElementById("page_myPrize");
         pageDom.innerHTML = pageHtml;
         showAptPage("page_myPrize",1,1); //首页不纪录游戏纪录
-
-       // var pageDom = document.getElementById(pageName);
-       // if(pageDom.innerHTML == "") {
-       //     //如果是跳出返回后的页面
-       //     if(pageName=="page_myPrize") {
-       //         PINGAN.BvmEvent.myPrize (); //跳到做任务页面
-       //     }
-       // }else{
-       //     //如果是正常加载进入的页面
-       //     var showPageDom=setTimeout(function(){//加载的延时
-       //         pageDom.style.display = "block";
-       //         clearTimeout(showPageDom);
-       //     },100);
-       // }
-
 
         $('#pr-banner').on("click",function(){
             $('.p-Popup').show();
@@ -250,46 +248,43 @@ define(function(require){
 
     }
 
-
-
-
-
-
-    function errorPage (state) {
-        showLoading();
-        var pageHtml = "";
-        if(state=="0"){
-            //接口出错或者长时间不返回数据
-            pageHtml = "<p class='errorP font-h2'>亲，网络连接出错，请检测网络后，稍后访问</p>"
-        }else if(state=="1"){
-            //接口返回code为1的错误
-            pageHtml = "<p class='errorP font-h2'>亲，由于不可预知的错误，系统出现异常，勤劳的程序猿正在修复，请稍后访问</p>"
-        }else if(state=="3") {
-            //游戏未开始
-            pageHtml = "<p class='errorP font-h2'>亲，您来早了，游戏还未开始</p>"
-        }else if(state=="4") {
-            //游戏积分用完
-            pageHtml = "<p class='errorP font-h2'>当日积分已领完，明天再来吧</p>"
-        }else if(state=="5") {
-            //网络超时
-            pageHtml = "<p class='errorP font-h2'>亲，你的网络连接超时，请确认网络后请重新尝试</p>"
-        }
-        var pageDom = document.getElementById("page_error");
-        pageDom.innerHTML = pageHtml;
-        showAptPage("page_error",0,1);
-        hideAlert();
-    }
+    //function errorPage (state) {
+    //    showLoading();
+    //    var pageHtml = "";
+    //    if(state=="0"){
+    //        //接口出错或者长时间不返回数据
+    //        pageHtml = "<p class='errorP font-h2'>亲，网络连接出错，请检测网络后，稍后访问</p>"
+    //        pageHtml = "  <div class='guide_back' onclick='history.back();'></div>"
+    //    }else if(state=="1"){
+    //        //接口返回code为1的错误
+    //        pageHtml = "<p class='errorP font-h2'>亲，由于不可预知的错误，网络出现异常，请稍后访问</p>"
+    //    }else if(state=="3") {
+    //        //游戏未开始
+    //        pageHtml = "<p class='errorP font-h2'>亲，您来早了，游戏还未开始</p>"
+    //    }else if(state=="4") {
+    //        //游戏积分用完
+    //        pageHtml = "<p class='errorP font-h2'>当日积分已领完，明天再来吧</p>"
+    //    }else if(state=="5") {
+    //        //网络超时
+    //        pageHtml = "<p class='errorP font-h2'>亲，你的网络连接超时，请确认网络后请重新尝试</p>"
+    //    }
+    //    var pageDom = document.getElementById("page_error");
+    //    pageDom.innerHTML = pageHtml;
+    //    showAptPage("page_error",0,1);
+    //    hideAlert();
+    //}
 
     return {
         indexPage:indexPage,
+        ad_adviseV:ad_adviseV,
         acceptPage:acceptPage,
         bannerPage:bannerPage,
-        errorPage:errorPage,
+        //errorPage:errorPage,
         guidePage:guidePage,
         lotteryPage:lotteryPage,
         myRecordPage:myRecordPage,
         myPagePrize:myPagePrize,
-        page_lottery: page_lottery,
+        page_lotteryV: page_lotteryV,
         drawPage:drawPage,
         overTimePage:overTimePage
     };

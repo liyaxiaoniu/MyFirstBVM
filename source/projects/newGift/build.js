@@ -17,13 +17,13 @@
         }
     },
     paths: {
-        "interface": "app/interface",
-        "zepto": "../../../libs/zepto/v1.1.6/zepto.min",
-        "nativeJS":"../../../utils/native",
-        "model": "app/model",
-        "view": "app/view",
-        "viewModel": "app/viewModel",
-        "bvm":"../../../utils/bvm/v0.0.1/bvm",
-        "text": "../../../libs/require/require-plugin/text"
+        "interface": "./app/interface",
+        "zepto": "./libs/zepto/v1.1.6/zepto.min",
+        "nativeJS":"./utils/native",
+        "model": "./app/model",
+        "view": "./app/view",
+        "viewModel": "./app/viewModel",
+        "bvm":"./utils/bvm/v0.0.1/bvm",
+        "text": "./libs/require/require-plugin/text"
     }
 })

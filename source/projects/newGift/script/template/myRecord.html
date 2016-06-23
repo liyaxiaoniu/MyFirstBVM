@@ -1,16 +1,21 @@
-<div class="page-feil" xmlns="http://www.w3.org/1999/html">
+<div class="page-feil" >
     <div class="h-page-m">
     <header style="width: 100%;height: 40%;">
-        <div class="h-head">
-            <div class="h-bagan"></div>
-            <div class="h-record">我的战绩</div>
-        </div>
+        <!--<div class="h-head">-->
+            <!--<div class="h-bagan"></div>-->
+            <!--<div class="h-record">我的战绩</div>-->
+        <!--</div>-->
+        <div class="guide_back" onclick="history.back();"></div>
 
         <div class="p-head-bot">
             <div class="p-head-t"></div>
             <div class="p-head-bot-cen">
-                <div class="p-head-flow">我共获得了：</div>
-                <div class="p-head-w"><label class="red" id="newReward">50</label>兆流量</div>
+                <div class="p-head-MyFeil" id="p-head-MyFeil">
+                    <div class="p-head-Mymobli">我已成功邀请好友<label class="red" id="Mymobli">0</label>次</div>
+                    <div class="p-head-MyForCoe">获得<label class="red" id="MyForCoe">0</label>次抽奖机会</div>
+                </div>
+                <div class="p-head-flow">我共获得了：<label class="red" id="newReward">0</label>兆流量</div>
+                <!--<div class="p-head-w"><label class="red" id="newReward">0</label>兆流量</div>-->
                 <!--<div class="p-head-red"><label class="red" id="red">30</label>元现金红包</div>-->
             </div>
         </div>
@@ -18,7 +23,7 @@
 
     <div class="p-center">
 
-        <div class="cen-draw">我的抽奖码</div>
+        <div class="cen-draw"></div>
         <div class="cen-draw-c" id="recordList">
             <!--<div class="cen-draw-s">-->
                 <!--<div class="cen-draw-i"><img src="../newGift/style/images/p3.2.1.png"/> </div>-->
@@ -48,17 +53,13 @@
                 <div class="bot-fixed-ts">一账通 — 您专属综合金融智能管家<br/>让您轻松实现一站式账户管理和资产透视
                     <div class="bot-fixed-col">点击立即下载，百兆流量天天领</div>
                     <div class="bot-fixed-botton">
-                        <a href="http://m.pingan.com/c2/sys/tuiguang/weixin/index.html?app=yzt-wtg10">立即下载</a></div>
+                        <a class="bot_b" href="http://m.pingan.com/c2/sys/tuiguang/weixin/index.html?app=yzt-wtg38">立即下载</a></div>
                 </div>
                 <div class="bot-hide"><img src="../newGift/style/images/dlelte.png" style="width:0.6rem;"></div>
             </div>
 </div>
-
-
-
 </div>
 </div>
-
 
 <section id="info-page" class="p-page info-page">
     <form class="index" autocomplete="off" method="post" id="convertForm">
@@ -69,36 +70,38 @@
         <div class="p-recode-rt">您领取到的奖品，将于活动结束后7天完成寄送</div>
         <div class="p-recode-rte">请输入您的收货信息</div>
     </div>
+         <input type="hidden" id="prizeCode">
+         <input type="hidden" id="drawCode">
     <div class="info-content">
         <div class="name-content input-box">
             <div class="content-cancel" id="content-cancel-name"></div>
             <input class="content-input" id="name" type="text" placeholder="姓名"/>
             <div class="info-bottom-line" id="info-bottom-line-name"></div>
-            <div class="p-bottom-null p-bottom-null-name" id="bot-Nonull">姓名不能为空</div>
-            <div class="p-bottom-null p-bottom-null-size" id="bot-Nonull">姓名不能超过5个字符</div>
+            <div class="p-bottom-null p-bottom-null-name" id="bot-Nonull1">姓名不能为空</div>
+            <div class="p-bottom-null p-bottom-null-size" id="bot-Nonull2">姓名不能超过5个字符</div>
         </div>
         <div class="addr-content input-box">
             <div class="content-cancel"></div>
             <input id="address" class="content-input" type="text" placeholder="收货地址" maxlength="100"/>
             <div class="info-bottom-line"></div>
-            <div class="p-bottom-null p-bottom-null-code" id="bot-Nonull">收货地址不能为空</div>
+            <div class="p-bottom-null p-bottom-null-code" id="bot-Nonull3">收货地址不能为空</div>
         </div>
         <div class="cre-content input-box">
             <div class="content-cancel"></div>
-            <input id="cardId" class="content-input" type="text" placeholder="身份证" value="522635198708184662"/>
+            <input id="cardId" class="content-input" type="text" placeholder="身份证"/>
             <div class="info-bottom-line"></div>
             <div id="tel-sim" class="dsim sim-color">身份证格式不正确</div>
-            <div class="p-bottom-null p-bottom-null-rie" id="bot-Nonull">身份证号码不能为空</div>
+            <div class="p-bottom-null p-bottom-null-rie" id="bot-Nonull4">身份证号码不能为空</div>
        </div>
         <div class="phone-content input-box">
             <div class="content-cancel" id="content-cancel-mobileno"></div>
-            <input id="mobaileNo" class="content-input" type="tel" placeholder="手机号码" value="13578921327"/>
+            <input id="mobaileNo" class="content-input" type="tel" disabled="disabled" placeholder="手机号码"/>
             <div class="info-bottom-line" id="info-bottom-line-mobileno"></div>
             <div id="tel-tip" class="dsn sim-colorph">手机输入不符合规范</div>
             <div class="p-bottom-null p-bottom-null-phon" id="bot-Nonull">手机号码不能为空</div>
         </div>
-        </div>
-        <div id="p-page-sibmit" class="btn-confirm-submit">
+    </div>
+        <div id="p-page-sibmit" class="btn-confirm-submit" clicked="0">
         <div class="simt-tur">确认<br/>提交</div>
         </div>
 

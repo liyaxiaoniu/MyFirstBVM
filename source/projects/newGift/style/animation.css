@@ -48,3 +48,14 @@
 .text_ease_in_out{
   -webkit-animation: text_ease_in_out 9000ms linear infinite;
 }
+@-webkit-keyframes dropBox_to_rise {
+  0%{
+    -webkit-transform: translate3d(0,6.3rem,0);
+  }
+  100%{
+    -webkit-transform: translate3d(0,0,0);
+  }
+}
+.dropBox_to_rise {
+  -webkit-animation: dropBox_to_rise 500ms ease-in-out;
+}

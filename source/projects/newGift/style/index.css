@@ -45,7 +45,7 @@
 .main{background:#DDD}
 #back{padding: 1em 0}
 body{background-color: #fff5db;width: 100%;height: 100%;position: relative}
-#page_main{width: 100%;height: 100%; background: url("images/bg.png") no-repeat;position: absolute;
+#page_main{width: 100%;height: 100%; background: url("images/bg.png") no-repeat;
     background-size: cover;  overflow: hidden;}
 .main_header{
     height: 10.08rem;
@@ -55,55 +55,84 @@ body{background-color: #fff5db;width: 100%;height: 100%;position: relative}
     padding: 0 0 0.8rem 0;
 }
 .main_footer{
+    height: 4.07rem;
+    width: 10rem;
     background: url("images/connect.png") no-repeat;
-    background-size: 10rem 4.07rem;
-    position: relative;
-    top: -3rem;
+    background-size: cover;
+    position: absolute;
+    top: 8rem;
     left: 1rem;
+    /*height: 11.07rem;*/
+    /*width: 100%;*/
+    /*background: url("images/footerBg.png") no-repeat;*/
+    /*background-size: cover;*/
 }
 .main_copyright{
     position: absolute;
     width: 100%;
     text-align: center;
-    bottom: 0.624rem;
+    top: 20rem;
     color: #909090;
+}
+#main-hide{
+    display: none;
+}
+
+#vCode{
+    width:3rem;
+    height:1rem;
+    text-align:center;
+    position:relative;
+    left:0.5rem;
 }
 .main_accBtn{
     position: absolute;
     top: 18.3rem;
-    background: #464646;
-    /* background: url("images/acceptBtn.png") no-repeat; */
+    background: #fdb11e;
     width: 10.016rem;
-    height: 1.7rem;
+    height: 1.2rem;
     background-size: 9rem 2.1rem;
     left: 1.01rem;
-    line-height: 1.7rem;
+    line-height: 1.2rem;
     text-align: center;
     color: #fff;
     border-radius: 1rem;
-    font-size: 0.8rem;
-    /*position: absolute;*/
-    /*top:15.536rem;*/
-    /*background: url("images/acceptBtn.png") no-repeat;*/
-    /*width: 6.016rem;*/
-    /*height: 2.304rem;*/
-    /*background-size: contain;*/
-    /*left: 3.01rem;*/
-}
-.main_accBtnActive{
-    background: url("images/acceptBtnActive.png") no-repeat;
-    background-size: contain;
-}
-.main_explain{
-    top:7.525rem;
+    font-size: 0.7rem;
+    display: none;
+    }
+.main_accBtn_hidden{
     position: absolute;
-    width: 2.112rem;
-    height: 2.112rem;
-    background-size: contain;
-    background-repeat: no-repeat;
+    top: 18.3rem;
+    background: #CCCCCC;
+    width: 10.016rem;
+    height: 1.2rem;
+    background-size: 9rem 2.1rem;
+    left: 1.01rem;
+    line-height: 1.2rem;
+    text-align: center;
+    color: #fff;
+    border-radius: 1rem;
+    font-size: 0.7rem;
 }
-.main_explain {
-    /*background-image: url("images/main_explain.png");*/
+.login{
+   position: absolute;
+}
+
+
+    .main_accBtnActive{
+        background: url("images/acceptBtnActive.png") no-repeat;
+        background-size: contain;
+    }
+    .main_explain{
+        top:7.525rem;
+        position: absolute;
+        width: 2.112rem;
+        height: 2.112rem;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+    .main_explain {
+        /*background-image: url("images/main_explain.png");*/
     /*left: 2.13504rem;*/
     background-image: url("images/main_explain.png");
     left: 0.7rem;
@@ -117,7 +146,7 @@ body{background-color: #fff5db;width: 100%;height: 100%;position: relative}
     background: url("images/phon.png");
     width: 0.523rem;
     height: 0.78rem;
-    z-index: 999;
+    /*z-index: 999;*/
     position: relative;
     top: 0.4rem;
     background-size: cover;
@@ -125,11 +154,11 @@ body{background-color: #fff5db;width: 100%;height: 100%;position: relative}
 }
 .main-cen{
     width: 11rem;
-    height: 5rem;
-    background: beige;
+    height: 6.9rem;
     position: relative;
-    top: 4.6rem;
+    top: 3.8rem;
     left: -0.5rem;
+    overflow: hidden;
 }
 .main-cen-border{
     width: 11rem;
@@ -142,18 +171,20 @@ body{background-color: #fff5db;width: 100%;height: 100%;position: relative}
 .main-phon-in{
     position: relative;
     left: 5rem;
-    top: -0.6rem;
+    top: -0.7rem;
 }
 .main-phon-input{
     width: 5rem;
     margin-left: -3.7rem;
-    font-size: 0.6rem;
+    height: 1rem;
+    font-size: 0.5rem;
+    border:none;
+    outline:medium;
 }
+
 .main_pop{
     width: 10.288rem;
-
     background-color: #fff5db;
-
     background-size: contain;
     background-repeat: no-repeat;
     position: relative;
@@ -165,24 +196,52 @@ body{background-color: #fff5db;width: 100%;height: 100%;position: relative}
 }
 .main-err{
     background-image: url("images/err.png");
-    width: 0.66rem;
-    height: 0.65rem;
+    /*width: 1rem;*/
+    /*height: 1rem;*/
     position: relative;
-    top: 0.2rem;
-    background-size: cover;
+    top: 0.28rem;
+    left: 0.5rem;
+}
+.main-phon-input-m{
+    position: relative;
+    top: 0rem;
+    width: 5rem;
+    height: 1rem;
+    left: -3.6rem;
+    font-size:0.5rem;
+    border: none;
+    outline:medium;
 }
 .main-phon-err-t{
-    font-size: 0.5rem;
+    font-size: 0.43rem;
     position: relative;
-    top: -0.4rem;
-    left: 0.9rem;
+    top: -0.2rem;
+    left: 1.4rem;
     color: #EF6F0A;
+    width: 3.5rem;
+}
+.main-phon-err-co{
+    font-size: 0.43rem;
+    position: relative;
+    top: -1.3rem;
+    left: 6.9rem;
+    color: #EF6F0A;
+    display: none;
+}
+.main-phon-err-fei{
+    position: relative;
+    top: -1.6rem;
+    left: 6.9rem;
+    width: 3.5rem;
+    height: 1rem;
+    border: 0.041rem solid #B3972A;
+
 }
 .main-phon-err{
-    width: 4.3rem;
+    /*width: 4.3rem;*/
     height: 1rem;
     position: relative;
-    top: -1.5rem;
+    top: -1.8rem;
     left: 6.5rem;
     display: none;
 }
@@ -192,41 +251,48 @@ body{background-color: #fff5db;width: 100%;height: 100%;position: relative}
     top: -0.6rem;
 }
 .main-phon-err-inp{
-    width: 3.5rem;
+    width: 4rem;
     height: 1.13rem;
     font-size: 0.5rem;
     position: relative;
-    top: -1.5rem;
-    left: 7rem;
+    top: -1.8rem;
+    left: 6.5rem;
     line-height: 1.13rem;
     color: #FFFCF9;
-    background: #B9B5B5;
+    background: #ff8a00;
     text-align: center;
     border-radius: 0.3rem;
+    border:none;
+    outline:medium;
 }
 .main-cen-phonimg{
     background-image: url("images/code.png");
-    background-repeat: no-repeat;
-    background-size: cover;
     width: 0.6rem;
     height: 0.7rem;
     position: relative;
     top: 0.4rem;
     left: 0.4rem;
+    background-size: cover;
 }
 .main-phon-err-code{
-display: none;
+    height: 1rem;
+    position: relative;
+    margin-top: -1.6rem;
+    left: 6.5rem;
+    display: none;
 }
 .main-phon-err-c{
-    font-size: 0.5rem;
+    font-size: 0.43rem;
     position: relative;
-    top: -0.4rem;
-    left: 0.9rem;
+    top: -0.3rem;
+    left: 1.4rem;
     color: #EF6F0A;
+    width: 3.5rem;
 }
 .main-close{
     font-size: 0.5rem;
     margin-top: 0.2rem;
+    color: #8C8888;
 }
 .main_pop_normal{
     height: 11.936rem;
@@ -257,6 +323,11 @@ display: none;
     top: 0.186rem;
     right: 0.186rem;
 }
+.main_hide_size{
+    width: 2rem;
+    height: 2rem;
+    float: right;
+}
 .main_pop_content{
     position: absolute;
     top: 1.749rem;
@@ -273,6 +344,15 @@ display: none;
 }
 .content_text span{
     color: #d01f1f;
+}
+.reCode_bg{
+    width:12rem;
+    height: 38rem;
+    background: #332F2F;
+    position: fixed;
+    top: -16rem;
+    opacity: 0.6;
+    z-index:0;
 }
 .recom{
     background-color: #f5e4b9;
@@ -298,7 +378,7 @@ display: none;
     height: 4.332rem;
     border-radius: 0.15rem;
     position: absolute;
-    top: 15.523rem;
+    top: 15.623rem;
     left:3%;
 }
 .recom_text{
@@ -332,8 +412,8 @@ display: none;
 .guide_recom_btn{
     text-align: center;
     left: 0.628rem;
-    width: 8.6rem;
-    /*width: 9.948rem;*/
+    /*width: 8.6rem;*/
+    width: 9.948rem;
 }
 .recom_copy{
     position: absolute;
@@ -431,12 +511,12 @@ display: none;
 #page_guide,#page_accept,#page_banner {
     width: 100%;
     height: 100%;
-    position: absolute;
+    position: inherit;
     background-size: contain;
     overflow: hidden;
 }
 .page_light {
-    background-image: url("images/light.png");
+    background-image: url("images/Record.png");
     background-repeat: no-repeat;
 }
 #page_banner.page_light{
@@ -446,7 +526,7 @@ display: none;
     width: 0.88rem;
     height: 0.88rem;
     position: absolute;
-    top: 1.152rem;
+    top: 0.7rem;
     left: 0.352rem;
     background-image: url("images/back.png");
     background-repeat: no-repeat;
@@ -512,20 +592,20 @@ display: none;
 .accept_font1{
     position: absolute;
     width: 100%;
-    top:2.23072rem;
+    top:2rem;
     text-align: center;
     color: #624220;
 }
 .accept_font2{
     position: absolute;
     width: 100%;
-    top:3.50352rem;
+    top:3.1rem;
     text-align: center;
     color: #957654;
 }
 .accept_smile {
     position: absolute;
-    top:4.64rem;
+    top:4.3rem;
     width: 2.864rem;
     height: 2.848rem;
     background-image: url("images/smile.png");
@@ -537,32 +617,32 @@ display: none;
     background-color: #f5e4b9;
     background-image: url("images/money.png");
     background-repeat: no-repeat;
-    background-size: 20%;
-    background-position: -0.3rem 0.352rem;
+    background-size: 25%;
+    background-position: -0.3rem 0.652rem;
     width: 94%;
     height: 7.0184rem;
     border-radius: 0.15rem;
     position: absolute;
-    top: 8.064rem;
-    left:3%;
+    top: 7.5rem;
+    left: 3%;
 }
 .accept_recom_text{
     position: absolute;
-    top: 0.72976rem;
-    left: 2.70128rem;
-    text-align: left;
+    left: 3rem;
+    top: 0.8rem;
     color: #624220;
-    width: 100%;
+    width: 9rem;
+    font-size: 0.5rem;
     line-height: 0.8rem;
 }
 .accept_submit {
-    width: 6.15904rem;
+    width: 7.15904rem;
     height: 1.568rem;
     line-height: 1.568rem;
     background-color: #ffae0b;
     color: #671c02;
     position: absolute;
-    top: 3.5918rem;
+    top: 4.5918rem;
     left: 2.464rem;
     border-radius: 0.8rem;
     text-align: center;
@@ -704,10 +784,40 @@ display: none;
     width: 300%;
     -webkit-transform: translate3d(13rem,0,0);
 }
+#netOver{
+    position: fixed;
+    z-index: 41;
+    top: 4rem;
+    left: 0.4rem;
+    text-align: center;
+}
+.netOver_float{
+    width: 11rem;
+    height: 8rem;
+    background-color: #FFF5DA;
+    border: 5px solid #E8AE0B;
+    border-radius: 0.3rem;
+}
+.netOver_over{
+    text-align: center;
+    font-size: 0.8rem;
+    word-spacing: 0.5rem;
+    color: #624220;
+    line-height: 1.2rem;
+}
+.netOver_close{
+    /*background: url("images/close.png") no-repeat;*/
+    background-size: 0.9rem 0.9rem;
+    width: 2rem;
+    height: 2rem;
+    margin: 0.4rem 0 0 9rem;
+    z-index: 5;
+}
 /*iphone4*/
 @media only screen
 and (min-device-width : 310px)
-and (max-device-width : 321px){
+and (max-device-width : 321px)
+and (max-device-width : 561px){
     /*html{font-size: 48px!important;}*/
     .main_header{
         height: 9.08rem;
@@ -716,14 +826,14 @@ and (max-device-width : 321px){
         top: 14.236rem;
     }
     .main_copyright{
-        bottom: 0.24rem;
+        bottom: 0.8rem;
     }
     .main_pop{
         top: 2.528rem;
     }
     .guide_recom{
-        height: 3.782rem;
-        top: 13.35rem;
+        height: 4.5rem;
+        top: 15rem;
     }
     .recom_btn{
         top: 2.3rem;
@@ -736,7 +846,7 @@ and (max-device-width : 321px){
         line-height: 0.7rem;
     }
     .accept_submit{
-        top: 3rem;
+        top: 4rem;
     }
     .accept_skip{
         top: 4.808rem;
@@ -788,10 +898,10 @@ and (max-device-width : 361px){
         top: 12.0672rem;
     }
     .guide_recom{
-        top: 14.623rem;
+        top: 14.6235rem;
     }
     #page_accept .guide_recom{
-        top: 15.43rem;
+        top: 15rem;
     }
     .recom_banner{
         top: 11.8352rem;
@@ -815,3 +925,19 @@ and (max-device-width : 361px){
         top: 15.86rem;
     }
 }
+/*iphone4*/
+@media only screen
+and (max-device-width : 569px) {
+    /*html{font-size: 48px!important;}*/
+    .main_accBtn {
+       top:18.7rem;
+    }
+    .main-err{
+        width: 0.6rem;
+        height: 0.6em;
+        background-size: cover;
+    }
+}
+
+
+

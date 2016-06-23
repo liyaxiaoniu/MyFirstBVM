@@ -1,52 +1,32 @@
 {
-  "body":{
-    "recordList":[
-      {
-        "prizeId":"1234",
-        "resultCode": "1",
-        "drawCode": "789458",
-        "prizeImagePath": "http://img.taopic.com/uploads/allimg/110906/1382-110Z611025585.jpg",
-        "isPrize": "3",
-        "Redone":"30",
-        "Redtwo":"100",
-        "Recprid":"Y"
-      },
-      {
-        "prizeId":"78976",
-        "resultCode": "1",
-        "drawCode": "876569",
-        "prizeImagePath": "http://pic.nipic.com/2008-01-05/200815142355195_2.jpg",
-        "isPrize": "1",
-        "Redone":"30",
-        "Redtwo":"100",
-        "Recprid":"N"
-      },
-      {
-        "prizeId":"78976",
-        "resultCode": "1",
-        "drawCode": "876569",
-        "prizeImagePath": "http://pic.nipic.com/2008-01-05/200815142355195_2.jpg",
-        "isPrize": "2",
-        "Redone":"30",
-        "Redtwo":"100",
-        "Recprid":"N"
-      },
-      {
-        "prizeId":"78976",
-        "resultCode": "1",
-        "drawCode": "876569",
-        "prizeImagePath": "http://pic.nipic.com/2008-01-05/200815142355195_2.jpg",
-        "isPrize": "3",
-        "Redone":"30",
-        "Redtwo":"100",
-        "Recprid":"N"
-      }],
+  "body": {
+    "drawInfos":[{
+      "drawCode":"123456",
+      "drawStatus":"0",
+      "prizeCode":"MAAMMKT_BEWUSERREWARD_IPHONE6S",
+      "prizeStatus" :"0"
+    },{
+      "drawCode":"222222",
+      "drawStatus":"1",
+      "prizeCode":"MAAMMKT_BEWUSERREWARD_IWATCH",
+      "prizeStatus" :"1"
+    },{
+      "drawCode":"445567",
+      "drawStatus":"2",
+      "prizeCode":"MAAMMKT_BEWUSERREWARD_IWATCH",
+      "prizeStatus" :"0"
+    },{
+      "drawCode":"345678",
+      "drawStatus":"3",
+      "prizeCode":"MAAMMKT_BEWUSERREWARD_IWATCH",
+      "prizeStatus" :"0"
+    }],
     "newReward": "70",
     "recommendNo": "8",
-    "recommendReward": "800"
-
+    "recommendReward": "10",
+      "prizeNum":"3",
+      "extrasPrizeNum":"2"
   },
-
   "code": "0",
-  "message": " Operation Successfully."
+  "message": " Operation successfully."
 }

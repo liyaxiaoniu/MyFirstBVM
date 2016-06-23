@@ -1,12 +1,12 @@
 <section class="bodyWrap" id="bodyWrap">
 
-    <div class="headPic">
-        <div class="backPic"></div>
-        <img src="style/images/headPic.png" >
+    <div class="head">
+        <div id="backPic" class="backPic"></div>
+        <img class="headPic" src="style/images/winApple.png" >
     </div>
 
     <div class="guild">
-        <div class="guildContent">做任务&nbsp<span style="color:#FFAE0B">&gt;</span>&nbsp获得抽奖机会&nbsp
+        <div class="guildContent">邀请好友&nbsp&nbsp<span style="color:#FFAE0B">&gt;</span>&nbsp&nbsp获得抽奖机会&nbsp
             <span style="color:#FFAE0B">&gt;</span>
         </div>
         <div class="guildPic">
@@ -17,56 +17,79 @@
     <div class="reminder">目前你有&nbsp<span id="numberOfTime" style="color: red">0</span>&nbsp次领取机会</div>
 
     <div class="task">
-        <div class="taskBtn">
+        <div id="taskBtn" class="taskBtn">
             <div class="taskBtn1"></div>
-            <div class="taskBtn2" id="taskbtn2" type="button" onclick=""><span class="doTask">做任务去</span></div>
+            <div class="taskBtn2" id="taskbtn2" type="button"><span class="doTask">邀请好友</span></div>
         </div>
         <div class="record">
             <div class="recordBtn"id="recordBtn" >我的战绩</div>
         </div>
     </div>
 
-    <div id="midContent" class="midContent row" style="margin-left:0.05rem">
-    </div>
+    <div id="midContent" class="midContent row clearfix"></div>
 
 </section>
 
 <div class="mainHideOption"></div>
 
-<section >
-<div class="continueTask">
-    <div id="backmain">
-        <img src="style/images/close.png" style="width: 0.8rem;margin-left:9.2rem;
-    margin-top: 0.3rem;" />
-    </div>
-    <div class="fontContent">
-        <div class="wordContent">您的领取抽奖码机会已用完!</div>
-        <h3>做任务，赢抽奖码攻略！</h3>
-        <p>1.做任务越多，获得抽奖码越多；</p>
-        <p>2.抽奖码越多，中奖机率越大；</p>
-        <p>3.每完成一个任务，均可获得一次抽奖机会；</p>
-        <p>完成<span class="word">3</span>个任务，可获得额外的<span class="word">2次</span>奖励；</p>
-        <p>完成<span class="word">6</span>个任务，可获得额外的<span class="word">3次</span>奖励；</p>
-        <p>完成<span class="word">9</span>个任务，可获得额外的<span class="word">5次</span>奖励；</p>
-        <p>完成的任务越多,再获得正常的抽奖机会的同时,</br></p>
-        <p>还有更多的额外机会的奖励</p>
-    </div>
-    <div class="task">
-        <div class="taskBtn" id="mytaskbtn">
-            <img src="style/images/continuetask.png" style="width: 4rem">
+<section class="continueTask_out">
+    <div class="continueTask" style="display: none">
+        <div id="backmain">
+            <img src="style/images/close.png" style="width: 0.8rem;margin-left:9.3rem;
+        margin-top: 0.3rem;" />
         </div>
-        <div class="recordBtn" id="myrecordbtn" >
-            <img src="style/images/myrecord.png" style="width: 3rem">
+        <div class="fontContent">
+            <div class="wordContent">您的领取抽奖码机会已用完!</div>
+            <h3>邀请好友，赢抽奖码攻略！</h3>
+            <p>1.邀请好友注册越多，获得抽奖码越多；</p>
+            <p>2.抽奖码越多，中奖机率越大；</p>
+            <p>3.每完成一个好友注册，均可获得一次抽奖机会；</p>
+            <p>完成<span class="word">3</span>个好友注册，可获得额外的<span class="word">2次</span>奖励；</p>
+            <p>完成<span class="word">6</span>个好友注册，可获得额外的<span class="word">3次</span>奖励；</p>
+            <p>完成<span class="word">9</span>个好友注册，可获得额外的<span class="word">5次</span>奖励；</p>
+            <p>完成的好友注册越多,再获得正常的抽奖机会的同时,</br></p>
+            <p>还有更多的额外机会的奖励</p>
+        </div>
+        <div class="task">
+            <div class="taskBtn" id="mytaskbtn">
+                <img src="style/images/invitate.png" style="width: 4rem" >
+                <span id="ct_invitate" class="ct_invitate">邀请好友</span>
+            </div>
+            <div class="recordBtn" id="myrecordbtn" >
+                <img src="style/images/myrecord.png" style="width: 3rem">
+            </div>
+        </div>
+        <div class="recommendBox">
+            <div class="footerPic">
+                <img src="style/images/hand.png" style="width: 1.5rem;position: absolute;
+        top: 11.4rem;">
+            </div>
+            <div class="bot-fel-mend">推荐好友注册，拿超级推荐奖励</div>
+            <div class="bot-fel-recomm">注册时需要填写你的推荐码</div>
+            <div class="recommend">
+                <span>推荐码</span>
+                <input type="text" id="guideReCodeNo" class="font-h2" value="" readonly="readonly"/>
+             </div>
         </div>
     </div>
-    <div class="recommendBox">
-        <div class="footerPic">
-            <img src="style/images/hand.png" style="width: 1.5rem;position: absolute;
-    top: 11.4rem;">
-        </div>
-        <div class="bot-fel-mend">推荐好友注册，拿超级推荐奖励</div>
-        <div class="bot-fel-recomm">注册时需要填写你的推荐码</div>
-        <div class="recommend"><span>推荐码</span> <input type="text" id="guideReCodeNo" class="font-h2" value="233945" />
-    </div>
-</div>
 </section>
+
+<section class="activityOver" style="display: none">
+    <div class="mainpage_float">
+        <img class="mainpage_title" src="style/images/main_pop_title.png" style="width:6.5rem;" />
+        <div id="mainpage_close" class="mainpage_close"></div>
+        <div class="mainpage_over">
+            <p>中奖号码如下:</p>
+            <div id="prizeList"></div>
+        </div>
+    </div>
+</section>
+
+
+<!--<section class="activity_over" style="display: none">-->
+    <!--<div class="netOver_float">-->
+        <!--<div class="netOver_over">-->
+            <!--<p>本次活动已经结束,活动结果将公布在微信公众号"平安好生活",敬请关注!</p>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</section>-->

@@ -3,53 +3,53 @@
     "drawNum": "5",
     "rewardActivityInfo":[{
       "activityNum":"10000",
-      "lotteryTime":"2016-05-20 12:00:00",
-      "prizeCode":"MAAMMKT_BEWUSERREWARD_IWATCH",
+      "lotteryTime":"2016-06-06 11:45:00",
+      "prizeCode":"MAAMMKT_BEWUSERREWARD_BIGBANG_CONCERTTICKETS",
       "prizeNum":"10",
-      "winnerCode":"22222222",
-      "backPic":"./style/images/contentPicLeft.png"
+      "winnerCode":"22222222"
+
     },{
       "activityNum":"50000",
-      "lotteryTime":"2016-05-16 12:00:00",
-      "prizeCode":"MAAMMKT_BEWUSERREWARD_1000FUELCARD",
+      "lotteryTime":"2016-06-6 18:00:00",
+      "prizeCode":"MAAMMKT_BEWUSERREWARD_IPHONE6S",
       "prizeNum":"5",
-      "winnerCode":"11111111",
-      "backPic":"./style/images/contentPicLeft.png"
+      "winnerCode":"11111111"
+
     },{
         "activityNum":"50000",
-        "lotteryTime":"2016-05-16 12:00:00",
-        "prizeCode":"MAAMMKT_BEWUSERREWARD_1000FUELCARD",
+        "lotteryTime":"2016-06-05 19:00:00",
+        "prizeCode":"MAAMMKT_BEWUSERREWARD_PROJECTOR6s",
         "prizeNum":"5",
-        "winnerCode":"11111111",
-        "backPic":"./style/images/contentPicLeft.png"
+        "winnerCode":"11111111"
+
       },{
       "activityNum":"50000",
-      "lotteryTime":"2016-05-16 12:00:00",
-      "prizeCode":"MAAMMKT_BEWUSERREWARD_1000FUELCARD",
+      "lotteryTime":"2016-06-05 20:00:00",
+      "prizeCode":"MAAMMKT_BEWUSERREWARD_IWATCH",
       "prizeNum":"5",
-      "winnerCode":"11111111",
-      "backPic":"./style/images/contentPicLeft.png"
+      "winnerCode":"11111111"
+
     },{
       "activityNum":"50000",
-      "lotteryTime":"2016-05-16 12:00:00",
-      "prizeCode":"MAAMMKT_BEWUSERREWARD_1000FUELCARD",
+      "lotteryTime":"2016-06-05 12:00:00",
+      "prizeCode":"MAAMMKT_BEWUSERREWARD_IPADPRO",
       "prizeNum":"5",
-      "winnerCode":"11111111",
-      "backPic":"./style/images/contentPicLeft.png"
+      "winnerCode":"11111111"
+
     },{
       "activityNum":"50000",
-      "lotteryTime":"2016-05-16 12:00:00",
+      "lotteryTime":"2016-06-05 12:00:00",
       "prizeCode":"MAAMMKT_BEWUSERREWARD_1000FUELCARD",
       "prizeNum":"5",
-      "winnerCode":"11111111",
-      "backPic":"./style/images/contentPicLeft.png"
+      "winnerCode":"11111111"
+
     },{
       "activityNum":"100000",
-      "lotteryTime":"2016-05-18 12:00:00",
-      "prizeCode":"MAAMMKT_BEWUSERREWARD_IPHONE6S",
+      "lotteryTime":"2016-06-05 12:00:00",
+      "prizeCode":"MAAMMKT_BEWUSERREWARD_MACBOOKAIR",
       "prizeNum":"8",
-      "winnerCode":"",
-      "backPic":"./style/images/contentPicRight.png"
+      "winnerCode":""
+
     }],
 
     "newReward": "100",

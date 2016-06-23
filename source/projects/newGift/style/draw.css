@@ -6,7 +6,7 @@
 #page_draw{
     height:100%;
     width:100%;
-    background-image: url(images/drawCodePage.png);
+    background-image: url(images/Record.png);
     background-repeat:no-repeat;
     background-size:100%;
 }
@@ -21,14 +21,14 @@
     font-weight: bold;
 }
 .header2{
-    font-size: 0.5rem;
+    font-size: 0.55rem;
     color: #671C02;
     margin: 0.3rem 0;
     text-align: center;
     font-weight: bold;
 }
 #page_draw .recordBtn{
-    height: 1.5rem;
+    height: 1.3rem;
     background: url("images/myrecord.png");
     background-repeat: no-repeat;
     background-size: 3.4rem;
@@ -37,20 +37,22 @@
 
 }
 #page_draw .reminder {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     color: #671C02;
     text-align: center;
-    height: 1rem;
+    margin: 0.2rem auto;
+}
+#page_draw .red{
+    color:red;
 }
 .detail{
     height: 8rem;
-    font-size: 0.45rem;
+    font-size: 0.5rem;
     color: #947554;
     text-align: center;
-    margin-bottom: 0.6rem;
-    line-height: 0.8rem;
+    line-height: 0.75rem;
 }
-#page_draw span{
+#page_draw .residueDegree{
     color: #df2017;
     text-align: center;
 }
@@ -61,21 +63,24 @@
     margin:0.2rem auto;
 }
 #page_draw .task1{
-    height: 2rem;
-    background: url("images/dotask.png");
+    height: 1.8rem;
+    background: url("images/invitate.png");
     background-repeat: no-repeat;
     background-size: 4.5rem;
     background-position: 50% 50%;
+    padding-top: 0.3rem;
+    text-align: center;
+}
+#page_draw .invitate{
+    color: #6b4023;
+    font-size: 0.7rem;
+}
 
-}
-.bottomBox{
-    height: 4rem;
-}
 .recommendBox {
     width: 11rem;
-    height: 5rem;
+    height: 4rem;
     background-color: #F5E4B9;
-    margin: 0.3rem auto;
+    margin: 0.2rem auto;
     border-radius: 0.3rem;
 }
 .footerPic {
@@ -88,26 +93,26 @@
     font-weight: bold;
     color: #624220;
     position: relative;
-    top: 1rem;
+    top: 0.5rem;
 
 }
 .bot-fel-recomm{
     font-size: 0.5rem;
     font-weight: bold;
     position: relative;
-    top: 1.2rem;
+    top: 0.7rem;
     left: 0.4rem;
     color: #947554;
 }
 .recommend{
     width: 8rem;
-    height: 1.3rem;
+    height: 1.2rem;
     background-color: #29CFBD;
     color: white;
-    margin:1.9rem auto;
+    margin:1.1rem auto;
     border-radius: 3rem;
     font-size: 0.6666rem;
-    line-height: 1.3rem;
+    line-height: 1.2rem;
     text-align: center;
 }
 
